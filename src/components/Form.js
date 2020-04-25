@@ -6,23 +6,35 @@ export default class MadlibzForm extends Component {
     constructor() {
       super();
       this.state = {
+        templates: [],
+        title: '',
+        inputFields: [],
       };
     }
 
     componentDidMount() {
-      // const { template } = this.props.match.params;
-      console.log ('mounted');
+      // console.log ('mounted');
       Madlibz.getRandomMadlibTemplate().then(result => {
-        console.log ( result.data )
-        // this.setState({template: result.data});
+        const madlibzTemplate = result.data
+        this.setState({ title: madlibzTemplate.title })
+        this.setState({ inputFields: madlibzTemplate.blanks })
+        console.log ( result.data.blanks.length )
+        // console.log ( result.data.value )
+        // this.setState({ story: madlibzTemplate.value }) // for the story
       });
     }
   
     render() {
       return (
-        <div >
-          <h1> see if i can get API</h1>
-        </div>
+        <container>
+          <div>
+            <h5> {this.state.title}</h5>
+            <h6> {this.state.inputFields[0]} </h6>
+            <h6> {this.state.inputFields[1]} </h6>
+            <h6> {this.state.inputFields[2]} </h6>
+            <h6> {this.state.inputFields[3]} </h6>
+          </div>
+        </container>
       )
     }
   }
