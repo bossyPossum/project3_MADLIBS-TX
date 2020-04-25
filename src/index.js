@@ -10,6 +10,8 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 
 import Home from './components/Home';
 import Create from './components/Create';
+import Select from './components/Select';
+import MadlibzForm from './components/Form';
 
 // Not a function: Routes
 const Routes = (
@@ -27,6 +29,8 @@ const Routes = (
       </Navbar>
         <Route exact path="/" component={ Home } />
         <Route exact path="/create" component={ Create } />
+        <Route exact path="/select" component={ Select } />
+        <Route exact path="/form" component={ MadlibzForm } />
     </div>
   </Router>
 );
