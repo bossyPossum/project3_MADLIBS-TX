@@ -7,14 +7,18 @@ export default () => {
     return (
         <div className="home">
             <h1>Let's play MADLIBZ</h1>
-
             <form>
                 <label>
-                    Please enter your name:
+                    What is your name:
                     <br></br>
-                    <input type="name" value={ playername } onChange={ (e) => setPlayername( e.target.value ) } />
+                    <input type="name" placeholder="Name" value={ playername } onChange={ (e) => setPlayername( e.target.value ) } />
                 </label>
-                <Link to="/select">
+                <Link to={{
+                    pathname: '/select',
+                    state: {
+                        name: playername
+                    }
+                    }}>
                 <button> Start playing </button>
                 </Link>    
             </form>

@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default (props) => {
+export default () => {
     const [playername, setPlayername] = useState('');
     console.log( ' playername ', playername )
     return (
         <div class="select">
-            <h2> { props.location.state.name }, please select a Madlibz</h2>
+            <h2>My Madlibz Story</h2>
             <form>
                 <label>
-                    Templates:
+                    Story to display here
                 </label>
                 <br></br>
-                <Link to="/form">
+                <Link to="/select">
                     <button>
-                        Form for this madlibz
+                        Start a New Game
                     </button>
                 </Link>
             </form>

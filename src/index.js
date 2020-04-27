@@ -12,6 +12,7 @@ import Home from './components/Home';
 import Create from './components/Create';
 import Select from './components/Select';
 import MadlibzForm from './components/Form';
+import Story from './components/Story';
 
 // Not a function: Routes
 const Routes = (
@@ -31,6 +32,7 @@ const Routes = (
         <Route exact path="/create" component={ Create } />
         <Route exact path="/select" component={ Select } />
         <Route exact path="/form" component={ MadlibzForm } />
+        <Route exact path="/story" component={ Story } />
     </div>
   </Router>
 );
