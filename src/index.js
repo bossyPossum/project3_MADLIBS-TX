@@ -31,8 +31,8 @@ const Routes = (
         <Route exact path="/" component={ Home } />
         <Route exact path="/create" component={ Create } />
         <Route exact path="/select" component={ Select } />
-        <Route exact path="/form" component={ MadlibzForm } />
-        <Route exact path="/story" component={ Story } />
+        <Route path="/form" component={ MadlibzForm } />
+        <Route path="/story/:id" component={ Story } />
     </div>
   </Router>
 );

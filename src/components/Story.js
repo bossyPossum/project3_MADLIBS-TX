@@ -12,7 +12,7 @@ export default () => {
                     Story to display here
                 </label>
                 <br></br>
-                <Link to="/select">
+                <Link to="/">
                     <button>
                         Start a New Game
                     </button>

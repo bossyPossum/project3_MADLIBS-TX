@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const Madlibz = {
   getRandomMadlibTemplate() {
-    return axios.get(`https://madlibz-tx.herokuapp.com/api/random`);
+    return axios.get(`https://madlibz-tx.herokuapp.com/api/madlibs`);
   },
 };
 
