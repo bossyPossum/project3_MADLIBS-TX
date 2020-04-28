@@ -53,27 +53,24 @@ export default class MadlibzForm extends Component {
           <div>
             <h5> Choose your Madlibz stories </h5>
             <form onSubmit={ this.handleSubmit }>
-              <div>
-                  
-                    { this.state.isLoading ? 
-                    <div>I am getting there...don't hurry me....</div>
-                    :
-                    this.state.templates.map(template => {
-                        return <Link key={template.id} to={
-                                    {pathname: `form/${template.id}`,
-                                    state: {
-                                        blanks: this.state.templates.blanks 
-                                    }}}>
-                                <p>{template.title}</p>
-                                </Link>;
-                        }
-                    )}
-                
-                          <input 
-                            type="submit" 
-                            value="Submit" 
-                            className="button-symptom-submit" 
-                          />
+              <div>  
+                { this.state.isLoading ? 
+                <div>I am getting there...don't hurry me....</div>
+                :
+                this.state.templates.map(template => {
+                  return <Link key={template.id} to={
+                            { pathname: `form/${template.id}`,
+                            state: { blanks: this.state.templates.blanks }
+                            }}>
+                          <p>{template.title}</p>
+                          </Link>
+                    }
+                )}
+                <input 
+                  type="submit" 
+                  value="Submit" 
+                  className="button-symptom-submit" 
+                />
                 <Link to="/story"></Link>  
               </div> 
             </form>
