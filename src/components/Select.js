@@ -10,7 +10,6 @@ export default class MadlibzForm extends Component {
         title: '',
         blanks: [],
         blank: '',
-        inputFields: [], // do i need this?
         isLoading: true,
       };
       this.handleSubmit = this.handleSubmit.bind(this)
@@ -19,6 +18,10 @@ export default class MadlibzForm extends Component {
     handleSubmit = (event) => {
       event.preventDefault();
       // this.props.history.push(`/story/${ title }`);
+    }
+
+    handleClick = (event) => {
+        event.preventDefault();
     }
 
     componentDidMount() {
@@ -36,38 +39,36 @@ export default class MadlibzForm extends Component {
         // 4. componentDidMount() // Get any API data, populate the this.state object, call the this.setState once to trigger a re-render.
 
 
-
+        // Setting the current stage to the rendered JSON data from AJAX call
         this.state.templates = result.data;
-
-        // const templates = result.data
-        // this.state.templates = templates.map((template) => 
-        // <li>
-        //     <a> { template.title } </a>
-        // </li>
-        // );
-
 
         // Ready to show the user. Re render please.
         this.setState({ isLoading: false });
-      });
+      }); 
     }
   
     render() {
       return (
         <container>
           <div>
-            <h5> All stories </h5>
+            <h5> Choose your Madlibz stories </h5>
             <form onSubmit={ this.handleSubmit }>
               <div>
-                  <ul> 
+                  
                     { this.state.isLoading ? 
-                    <div>I am getting there... don't hurry me....</div>
+                    <div>I am getting there...don't hurry me....</div>
                     :
                     this.state.templates.map(template => {
-                        return <li>{template.title}</li>;
+                        return <Link key={template.id} to={
+                                    {pathname: `form/${template.id}`,
+                                    state: {
+                                        blanks: this.state.templates.blanks 
+                                    }}}>
+                                <p>{template.title}</p>
+                                </Link>;
                         }
                     )}
-                  </ul>
+                
                           <input 
                             type="submit" 
                             value="Submit" 

@@ -10,7 +10,6 @@ export default class MadlibzForm extends Component {
         title: '',
         blanks: [],
         blank: '',
-        inputFields: [], // do i need this?
       };
       this.handleChange = this.handleChange.bind(this)
       this.handleSubmit = this.handleSubmit.bind(this)
@@ -27,6 +26,7 @@ export default class MadlibzForm extends Component {
 
     componentDidMount() {
       console.log ('mounted');
+      const { id } = this.props.match.params;
       Madlibz.getRandomMadlibTemplate().then(result => {
         console.log( result.data )
         const templates = result.data
@@ -42,8 +42,13 @@ export default class MadlibzForm extends Component {
         console.log ( 'story of index 2:', templates[2].value )
       });
     }
+
+
   
     render() {
+      if (this.state.blanks === null) {
+        return (<div>Loading...</div>);
+      }
       return (
         <container>
           <div>
@@ -51,13 +56,13 @@ export default class MadlibzForm extends Component {
             <form onSubmit={ this.handleSubmit }>
               <div>
                   <ul>
-                    {/* { this.state.blanks.map(((blank, index) => 
+                    { this.state.blanks.map(((blank, index) => 
                       <li key={index}>{blank}
                         <input 
                           type="name" 
                           value={ this.state.blank } 
                           onChange={ this.handleChange } />
-                      </li> */}
+                      </li>
                     ))}
                   </ul>
                           <input 

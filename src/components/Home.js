@@ -19,7 +19,8 @@ export default () => {
                         name: playername
                     }
                     }}>
-                <button> Start playing </button>
+                <br></br>
+                <Button> Start playing </Button>
                 </Link>    
             </form>
         </div>
