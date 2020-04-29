@@ -7,6 +7,7 @@ export default class MadlibzForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      word:'',
       templates: [],
       title: '',
       blanks: [],
@@ -52,8 +53,9 @@ export default class MadlibzForm extends Component {
             { this.state.blanks.map(((blank, index) => 
               <li key={index}>{blank}
                 <input 
-                  type="name" 
-                  value={ this.state.blank } 
+                  type="word" 
+                  // placeholder="enter your word"
+                  // value={ this.state.blank } 
                   onChange={ this.handleChange } />
               </li> 
             ))}
@@ -63,13 +65,6 @@ export default class MadlibzForm extends Component {
             value="Submit" 
             className="button-symptom-submit" 
           />
-          {/* <Link key={id} to={
-            { pathname: `story/${template.id}`,
-            value: { value: this.state.templates.value }
-            }}>
-          <br></br>
-          <Button> Display my story </Button>
-            </Link>   */}
 
           </form>
         </div>
