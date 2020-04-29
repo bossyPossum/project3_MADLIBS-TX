@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import Madlibz from './utils';
 
-export default class MadlibzForm extends Component {
+class MadlibzForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,6 +13,7 @@ export default class MadlibzForm extends Component {
       blanks: [],
       blank: '',
       id: '',
+      answers: []
     };
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -20,11 +21,20 @@ export default class MadlibzForm extends Component {
 
   handleChange(event) {
     this.setState({ value: event.target.value})
+    const index = parseInt(event.target.name);
+    const newAnswers = [...this.state.answers] ; //copy of the previous blank 
+    newAnswers[ index ] = event.target.value // assign index to each value in newAnswers //
+    this.setState({ answers: newAnswers })// this.setState of newBlanks
   }
   
   handleSubmit = (event) => {
     event.preventDefault();
     const { id } = this.props.match.params;
+    //to push new inputs fields to story. each input field goes into the end of each array
+    const newStory = this.state.answers[1]
+    // newStory.push(" ")
+    console.log( newStory)
+    console.log( 'hello' )
     this.props.history.push(`/story/${ id }`);
   }
 
@@ -36,11 +46,14 @@ export default class MadlibzForm extends Component {
       this.setState({ title: templates[ id -1 ].title })
       this.setState({ blanks: templates[ id - 1 ].blanks })
       this.setState({ value: templates[ id - 1 ].value })
-      console.log ( 'story of index 1:', templates[1].value )
+      console.log ( 'story of index 1:', templates[1].value ) 
+      this.setState({ answers: Array(this.state.blanks.length).fill('')}) //grab the length of the blank state // TODO look up whats Array in MDN.
+      
     });
   }
 
   render() {
+    const { id } = this.props.match.params;
     if (this.state.blanks === null) {
       return (<div>Loading...</div>);
     }
@@ -53,9 +66,9 @@ export default class MadlibzForm extends Component {
             { this.state.blanks.map(((blank, index) => 
               <li key={index}>{blank}
                 <input 
-                  type="word" 
-                  // placeholder="enter your word"
-                  // value={ this.state.blank } 
+                  name= { index }
+                  type="word"
+                  value={ this.state.answers[ index ] } 
                   onChange={ this.handleChange } />
               </li> 
             ))}
@@ -72,3 +85,5 @@ export default class MadlibzForm extends Component {
     )
   }
 }
+
+export default MadlibzForm;

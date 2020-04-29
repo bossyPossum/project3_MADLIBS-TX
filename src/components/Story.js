@@ -58,9 +58,10 @@ export default class Story extends Component {
       console.log( result.data )
       const templates = result.data
       this.setState({ title: templates[ id -1 ].title })
-      this.setState({ blanks: templates[ id - 1 ].blanks })
-      this.setState({ value: templates[ id - 1 ].value })
-      console.log ( 'story of index 1:', templates[1].value )
+      this.setState({ blanks: templates[ id - 1 ].blanks }) // setting the state to dispaly the blans
+      this.setState({ value: templates[ id - 1 ].value }) // displaying the story
+      console.log ( 'story of index 1:', templates[2].value[0] ) //displaying tehe first element of this story
+      console.log ( 'story of index 2:', templates[2].value[1] )//displaying tehe second element of this story
     });
   }
 
