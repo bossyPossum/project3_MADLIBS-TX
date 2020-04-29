@@ -24,16 +24,21 @@ class MadlibzForm extends Component {
     const index = parseInt(event.target.name);
     const newAnswers = [...this.state.answers] ; //copy of the previous blank 
     newAnswers[ index ] = event.target.value // assign index to each value in newAnswers //
-    this.setState({ answers: newAnswers })// this.setState of newBlanks
+    this.setState({ answers: newAnswers })// this set the State of newAnswers
   }
   
   handleSubmit = (event) => {
     event.preventDefault();
     const { id } = this.props.match.params;
     //to push new inputs fields to story. each input field goes into the end of each array
-    const newStory = this.state.answers[1]
-    // newStory.push(" ")
-    console.log( newStory)
+    let newSentence = [];
+    for (let i = 0; i < this.state.value.length; i++) {
+    //   const sentence = value[i] + answer[i];
+      // newSentence.push(sentence);
+    }
+    console.log( newSentence )
+    console.log( this.state.answers ) // array of new inputs
+    console.log( this.state.value ) // first input of three little pigs
     console.log( 'hello' )
     this.props.history.push(`/story/${ id }`);
   }
@@ -46,7 +51,8 @@ class MadlibzForm extends Component {
       this.setState({ title: templates[ id -1 ].title })
       this.setState({ blanks: templates[ id - 1 ].blanks })
       this.setState({ value: templates[ id - 1 ].value })
-      console.log ( 'story of index 1:', templates[1].value ) 
+      console.log ( '1st sentence of story index 2:', templates[2].value[0] ) //displaying the first element of this story
+      console.log ( '2nd sentence of story index 2:', templates[2].value[1] )//displaying the second element of this story
       this.setState({ answers: Array(this.state.blanks.length).fill('')}) //grab the length of the blank state // TODO look up whats Array in MDN.
       
     });
@@ -61,6 +67,7 @@ class MadlibzForm extends Component {
       <container>
         <div>
           <h5> {this.state.title} </h5>
+          <h5> {this.state.value} </h5>
           <form onSubmit={ this.handleSubmit }>
           <ul>
             { this.state.blanks.map(((blank, index) => 
