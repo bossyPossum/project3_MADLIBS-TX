@@ -23,7 +23,8 @@ export default class MadlibzForm extends Component {
   
   handleSubmit = (event) => {
     event.preventDefault();
-    // this.props.history.push(`/story/${ id }`);
+    const { id } = this.props.match.params;
+    this.props.history.push(`/story/${ id }`);
   }
 
   componentDidMount() {
