@@ -62,6 +62,7 @@ export default class MadlibzForm extends Component {
                             { pathname: `form/${template.id}`,
                             state: { blanks: this.state.templates.blanks }
                             }}>
+                          <img src={template.image} />    
                           <p>{template.title}</p>
                           </Link>
                     }

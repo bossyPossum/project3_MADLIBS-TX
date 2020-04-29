@@ -4,6 +4,7 @@ import Madlibz from './utils';
 
 export default class Story extends Component {
   constructor(props) {
+    console.log(props);
     super(props);
     this.state = {
       templates: [],
