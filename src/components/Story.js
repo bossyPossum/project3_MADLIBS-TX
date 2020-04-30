@@ -44,11 +44,6 @@ export default class Story extends Component {
         <div>
           <h2> {this.state.title} </h2>
           <h5> {this.props.location.state.newSentence} </h5>
-          <input 
-            type="submit" 
-            value="Submit" 
-            className="button-symptom-submit" 
-          />
         </div>
     )
   }
