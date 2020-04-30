@@ -7,7 +7,7 @@ export default () => {
     return (
         <container>
             <div className="home">
-                <h1>Let's play MADLIBZ</h1>
+                <h1 class="box bounce">Let's play MADLIBZ</h1>
                 <br></br>
                 <div className="whatIsYourName">
                 <form>
@@ -23,7 +23,7 @@ export default () => {
                         }
                         }}>
                     <br></br>
-                    <Button> Start playing </Button>
+                    <Button> Play Now </Button>
                     </Link>    
                 </form>
                 </div>

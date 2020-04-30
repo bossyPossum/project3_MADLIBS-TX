@@ -20,7 +20,9 @@ const Routes = (
     <div>
       <Navbar bg="primary" variant="dark">
         <Container>
-        <Navbar.Brand href="/">Insert logo</Navbar.Brand>
+        <Navbar.Brand href="/">
+        <img src="https://studio.code.org/v3/assets/S_o3osNVrredr-YE_cradNUtdNO6K-N57DLYDgbA-4o/boy2.png" height="60" width="60" alt="text here" />
+        </Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/">Home</Nav.Link>
         </Nav>

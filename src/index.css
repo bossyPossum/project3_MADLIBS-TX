@@ -1,10 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap');
 body {
   font-family: 'Gloria Hallelujah', cursive;
+  /* background-color: #1decd1; */
+  /* background-image: url("https://media.istockphoto.com/photos/colorful-handprints-trail-isolated-on-white-background-picture-id469951878?k=6&m=469951878&s=612x612&w=0&h=fRXq72pgknBL-SNnMu9WShCHIo9AyCVNM2aBZVQ8BnM="); */
+  /* background-image: url("https://cdn.dribbble.com/users/3305082/screenshots/6316269/final.gif"); */
+  /* background-image: url("https://media3.giphy.com/media/3o6vXU5NMizmHUYZEs/source.gif"); */
+  /* background-image: url("https://i.gifer.com/DUld.gif"); */
+  
+  background-image: url("https://i.gifer.com/9xPg.gif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  background-size: 1200px 800px;
+  z-index: -1;
 }
 
 .container {
-  padding: 2rem 0;
+  padding: 4rem 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -23,12 +35,12 @@ nav .container {
   margin: 0 auto 0 auto;
   transform-origin: bottom;
   width: 200px;
-  }
+}
 
 .bounce {
   animation-name: bounce;
   animation-timing-function: linear;
-  }
+}
 
 @keyframes bounce {
   0%   { filter: hue-rotate(1800deg); }
@@ -37,7 +49,7 @@ nav .container {
 
 ul {
   list-style-type: none;
-  max-width: fit-content;
+  /* max-width: fit-content; */
 }
 
 li {
@@ -71,5 +83,26 @@ h5 {
   width: 100%;
   object-fit: cover;
 }
+
+h1 {
+  color: rgb(15, 248, 7);
+  align-self: flex-end;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  margin: 0 auto 0 auto;
+  transform-origin: bottom;
+  width: 200px;
+}
+
+.bounce {
+  animation-name: bounce;
+  animation-timing-function: linear;
+}
+
+@keyframes bounce {
+  0%   { filter: hue-rotate(1800deg); }
+  100%   { filter: hue-rotate(360deg); }
+}
+
 
 

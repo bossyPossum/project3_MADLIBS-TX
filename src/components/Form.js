@@ -32,7 +32,7 @@ class MadlibzForm extends Component {
     //to push new inputs fields to story. each input field goes into the end of each array
     let newSentence = [];
     for (let i = 0; i < this.state.value.length; i++) {
-      const sentence = <span> { this.state.value[i]}  <span class="box bounce">{ this.state.answers[i] }</span>  </span>;
+      const sentence = <span> { this.state.value[i]}  <span class="box bounce">{ this.state.answers[i] }</span> </span>;
       newSentence.push(sentence);
     }
     console.log( 'this is the first sentence' )
@@ -66,7 +66,7 @@ class MadlibzForm extends Component {
     return (
       <container>
         <div>
-          <h5> {this.state.title} </h5>
+          <h2> {this.state.title} </h2>
           <form onSubmit={ this.handleSubmit }>
           <ul>
             { this.state.blanks.map(((blank, index) => 
