@@ -7,14 +7,6 @@ class MadlibzForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
-
-
-
-
-
-
-
       word:'',
       templates: [],
       title: '',
@@ -40,7 +32,7 @@ class MadlibzForm extends Component {
     //to push new inputs fields to story. each input field goes into the end of each array
     let newSentence = [];
     for (let i = 0; i < this.state.value.length; i++) {
-      const sentence = this.state.value[i] + this.state.answers[i];
+      const sentence = <span> { this.state.value[i]}  <span class="box bounce">{ this.state.answers[i] }</span>  </span>;
       newSentence.push(sentence);
     }
     console.log( 'this is the first sentence' )
@@ -78,7 +70,8 @@ class MadlibzForm extends Component {
           <form onSubmit={ this.handleSubmit }>
           <ul>
             { this.state.blanks.map(((blank, index) => 
-              <li key={index}>{blank}
+              <li key={index}>
+                <label>{blank}</label>
                 <input 
                   name= { index }
                   type="word"

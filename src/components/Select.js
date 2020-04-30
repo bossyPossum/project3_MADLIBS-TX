@@ -51,29 +51,36 @@ export default class MadlibzForm extends Component {
       return (
         <container>
           <div>
-            <h5> Choose your Madlibz stories </h5>
+            <h2> Choose your Madlibz stories </h2>
             <form onSubmit={ this.handleSubmit }>
-              <div>  
-                { this.state.isLoading ? 
-                <div>I am getting there...don't hurry me....</div>
-                :
-                this.state.templates.map(template => {
-                  return <Link key={template.id} to={
-                            { pathname: `form/${template.id}`,
-                            state: { blanks: this.state.templates.blanks }
-                            }}>
-                          <img src={template.image} />    
-                          <p>{template.title}</p>
-                          </Link>
+              <div class="card-deck">  
+                  { this.state.isLoading ? 
+                  <div>I am getting there...don't hurry me....</div>
+                  :
+                  this.state.templates.map(template => 
+                    {
+                    return <Link key={template.id} to={
+                              { pathname: `form/${template.id}`,
+                              state: { blanks: this.state.templates.blanks }
+                              }}>
+                              <div class="card">
+                                <div class="card-image">
+                                  <img src={template.image} />    
+                                </div>
+                                <div class="card-footer">
+                                  <p>{template.title}</p>
+                                </div>
+                              </div>
+                            </Link>
                     }
-                )}
-                <input 
-                  type="submit" 
-                  value="Submit" 
-                  className="button-symptom-submit" 
+                    )}
+              </div>
+              <input 
+                type="submit" 
+                value="Submit" 
+                className="button-symptom-submit" 
                 />
-                <Link to="/story"></Link>  
-              </div> 
+              <Link to="/story"></Link>  
             </form>
           </div>
         </container>
