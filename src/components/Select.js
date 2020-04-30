@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Madlibz from './utils';
+import { CardDeck, Card, Container } from 'react-bootstrap';
+
 
 export default class MadlibzForm extends Component {
     constructor(props) {
@@ -49,36 +51,38 @@ export default class MadlibzForm extends Component {
   
     render() {
       return (
-        <container>
+        <Container>
           <div>
-            <h2> Choose your Madlibz stories </h2>
+            <div class="chooseStoriesTitle">
+              <h2> Choose your Madlibz stories </h2>
+            </div>
+            <div class="chooseStories">
             <form onSubmit={ this.handleSubmit }>
-              <div class="card-deck">  
+              <CardDeck>
                   { this.state.isLoading ? 
                   <div>I am getting there...don't hurry me....</div>
                   :
                   this.state.templates.map(template => 
                     {
-                    return <Link key={template.id} to={
-                              { pathname: `form/${template.id}`,
-                              state: { blanks: this.state.templates.blanks }
+                      return <Link key={template.id} to={
+                        { pathname: `form/${template.id}`,
+                        state: { blanks: this.state.templates.blanks }
                               }}>
-                              <div class="card">
-                                <div class="card-image">
-                                  <img src={template.image} />    
-                                </div>
-                                <div class="card-footer">
-                                  <p>{template.title}</p>
-                                </div>
-                              </div>
-                            </Link>
+                          <Card>
+                            <Card.Img variant="top" src={template.image} />    
+                            <Card.Footer>
+                              <p>{template.title}</p>
+                            </Card.Footer>
+                          </Card>
+                      </Link>
                     }
-                    )}
-              </div>
+                  )}
+              </CardDeck>
               <Link to="/story"></Link>  
             </form>
+            </div>
           </div>
-        </container>
+        </Container>
       )
     }
   }

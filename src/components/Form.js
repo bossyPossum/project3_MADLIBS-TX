@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import Madlibz from './utils';
 
 class MadlibzForm extends Component {
@@ -35,7 +35,6 @@ class MadlibzForm extends Component {
       const sentence = <span> { this.state.value[i]}  <span class="box bounce">{ this.state.answers[i] }</span> </span>;
       newSentence.push(sentence);
     }
-    console.log( 'this is the first sentence' )
     console.log( newSentence )
 
     this.props.history.push({
@@ -64,7 +63,7 @@ class MadlibzForm extends Component {
       return (<div>Loading...</div>);
     }
     return (
-      <container>
+      <Container>
         <div>
           <h2> {this.state.title} </h2>
           <form onSubmit={ this.handleSubmit }>
@@ -88,7 +87,7 @@ class MadlibzForm extends Component {
 
           </form>
         </div>
-      </container>
+      </Container>
     )
   }
 }
