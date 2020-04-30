@@ -75,11 +75,6 @@ export default class MadlibzForm extends Component {
                     }
                     )}
               </div>
-              <input 
-                type="submit" 
-                value="Submit" 
-                className="button-symptom-submit" 
-                />
               <Link to="/story"></Link>  
             </form>
           </div>
