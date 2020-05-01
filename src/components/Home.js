@@ -13,7 +13,7 @@ export default () => {
                     <div className="whatIsYourName">
                     <form>
                         <label>
-                            What is your name:
+                            <p>What is your name:</p>
                             <br></br>
                             <input type="name" placeholder="Name" value={ playername } onChange={ (e) => setPlayername( e.target.value ) } />
                         </label>

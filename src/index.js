@@ -18,7 +18,7 @@ import Story from './components/Story';
 const Routes = (
   <Router>
     <div>
-      <Navbar bg="primary" variant="dark">
+      <Navbar bg="primary" variant="dark" className="navigation">
         <Container>
         <Navbar.Brand href="/">
         <img src="https://studio.code.org/v3/assets/S_o3osNVrredr-YE_cradNUtdNO6K-N57DLYDgbA-4o/boy2.png" height="60" width="60" alt="text here" />

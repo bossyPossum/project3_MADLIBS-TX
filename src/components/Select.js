@@ -51,7 +51,7 @@ export default class MadlibzForm extends Component {
   
     render() {
       return (
-        <Container>
+        <Container className="justify-content-md-center">
           <div>
             <div class="chooseStoriesTitle">
               <h2> Choose your Madlibz stories </h2>
@@ -68,7 +68,7 @@ export default class MadlibzForm extends Component {
                         { pathname: `form/${template.id}`,
                         state: { blanks: this.state.templates.blanks }
                               }}>
-                          <Card>
+                          <Card className="hoverOnCards">
                             <Card.Img variant="top" src={template.image} />    
                             <Card.Footer>
                               <p>{template.title}</p>
